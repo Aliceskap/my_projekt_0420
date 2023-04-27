@@ -8,31 +8,6 @@ import matplotlib.pyplot as plt
 #for feature scaling (can be done also in tf right?)
 from sklearn.preprocessing import StandardScaler
 
-#build my softmax with numpy
-def my_softmax(z):  
-    """ Softmax converts a vector of values to a probability distribution.
-    Args:
-      z (ndarray (N,))  : input data, N features
-    Returns:
-      a (ndarray (N,))  : softmax of z
-    """    
-    
-    a = np.zeros_like(z)
-    N = z.shape[0]
-    for i in range(N):
-        a[i] = np.exp(z[i])
-    a = a/sum(a)
-
-    return a
-
-z = np.array([1., 2., 3., 4.])
-a = my_softmax(z)
-atf = tf.nn.softmax(z) #computes softmax activations
-print(f"my_softmax(z):         {a}")
-print(f"tensorflow softmax(z): {atf}")
-
-my_softmax(z)
-
 #Problem Statement
 #In this exercise, you will use a neural network to recognize ten handwritten digits, 0-9. 
 #This is a multiclass classification task where one of n choices is selected. 
